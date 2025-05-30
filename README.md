@@ -18,7 +18,7 @@ En este laboratorio se implementa la comunicación serial UART utilizando el mic
 
 ## Implmentación
 
-
+![Implementación](Implementacion.png)
 
 ## Preguntas
 
