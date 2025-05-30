@@ -36,35 +36,37 @@ La implementación del laboratorio fue un éxito, ya que se logró establecer co
 
 #### Librerias utilizadas
 
-`#include <xc.h>`: Librería del compilador XC8 para el PIC
-`#include <stdio.h>`: Librería estándar de entrada/salida (para sprintf)
-`#include "adc.h"`: Encabezado del módulo ADC
-`#include "uart.h"`: Encabezado del módulo UART
+`#include <xc.h>`: Librería del compilador XC8 para el PIC  
+`#include <stdio.h>`: Librería estándar de entrada/salida (para sprintf)  
+`#include "adc.h"`: Encabezado del módulo ADC  
+`#include "uart.h"`: Encabezado del módulo UART  
 
 #### Definición de la frecuencia del oscilador y configuración del microcontrolador
 
-`#define _XTAL_FREQ 16000000`: Define que el PIC trabaja a 16 MHz
-`#pragma config FOSC = INTIO67`: Oscilador interno habilitado
-`#pragma config WDTEN = OFF`: Watchdog Timer deshabilitado
-`#pragma config LVP = OFF`: Low Voltage Programming deshabilitado
+`#define _XTAL_FREQ 16000000`: Define que el PIC trabaja a 16 MHz  
+`#pragma config FOSC = INTIO67`: Oscilador interno habilitado  
+`#pragma config WDTEN = OFF`: Watchdog Timer deshabilitado  
+`#pragma config LVP = OFF`: Low Voltage Programming deshabilitado  
 
 #### Función principal
 
-`void main(void) { `  
-    `OSCCON = 0x72;` => Configura el oscilador interno a 16 MHz  
-    `UART_Init();`   => Inicializa UART  
-   ` ADC_Init(); `   =>Inicializa ADC  
-    `while (1) {`  
-        `unsigned int adc_value = ADC_Read(0);`   
-        `float voltage = (adc_value * 5.0) / 1023.0;`   
-        `char buffer[20];`  
-        `sprintf(buffer, "Voltaje: %.2fV\r\n", voltage);`  
-        `UART_WriteString(buffer);`  
-        `__delay_ms(1000);}}`  
+`void main(void) { `    
+    `OSCCON = 0x72;` => Configura el oscilador interno a 16 MHz    
+    `UART_Init();`   => Inicializa UART    
+   ` ADC_Init(); `   =>Inicializa ADC    
+    `while (1) {`    
+        `unsigned int adc_value = ADC_Read(0);`     
+        `float voltage = (adc_value * 5.0) / 1023.0;`     
+        `char buffer[20];`    
+        `sprintf(buffer, "Voltaje: %.2fV\r\n", voltage);`    
+        `UART_WriteString(buffer);`    
+        `__delay_ms(1000);}}`    
 
 Dentro del ciclo `while(1)`, el programa realiza continuamente la adquisición y el envío del valor de voltaje: primero, lee el valor analógico del canal AN0 con `ADC_Read(0)`, que devuelve un número entero entre 0 y 1023 representando la señal analógica convertida en digital; después, este valor se convierte a un voltaje real usando la fórmula `(adc_value * 5.0) / 1023.0`, que ajusta la escala del ADC a 5V de referencia; luego, con `sprintf(buffer, "Voltaje: %.2fV\r\n", voltage)`, se forma una cadena de texto que contiene el voltaje con dos decimales, lista para enviar; a continuación, con UART_WriteString(buffer), se envía la cadena a través de la UART al dispositivo de destino (como una PC o un monitor serial); finalmente, el programa espera un segundo con `__delay_ms(1000)` antes de repetir el proceso, permitiendo que se visualicen las lecturas de forma ordenada y evitando que se saturen de mensajes el dispositivo receptor.
 
 ## Diagramas
+
+### Main.c
 
 ## Implementación
 
