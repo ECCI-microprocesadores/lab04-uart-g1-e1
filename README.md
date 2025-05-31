@@ -70,7 +70,11 @@ Dentro del ciclo `while(1)`, el programa realiza continuamente la adquisición y
 
 ## Implementación
 
-![Implementación](Implementacion.png)
+![Implementación](Implementacion_fisica.jpeg)
+
+## Diagrama de conexión
+
+![Diagrama de conexión](Implementacion.png)
 
 ## Preguntas
 
