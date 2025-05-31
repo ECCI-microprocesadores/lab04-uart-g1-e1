@@ -68,6 +68,17 @@ Dentro del ciclo `while(1)`, el programa realiza continuamente la adquisición y
 
 ### Main.c
 
+![main](main_c.png)
+
+### UART.h
+
+![encabezado uart](uart_h.png)
+
+### UART.c
+
+![codigo funcionamiento uart](uart_c.png)
+
+
 ## Implementación
 
 ![Implementación](Implementacion_fisica.jpeg)
