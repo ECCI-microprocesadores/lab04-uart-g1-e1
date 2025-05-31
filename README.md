@@ -72,11 +72,11 @@ Dentro del ciclo `while(1)`, el programa realiza continuamente la adquisición y
 
 ### UART.h
 
-![encabezado uart](uart_h.png)
+![encabezado uart](Uart_h.png)
 
 ### UART.c
 
-![codigo funcionamiento uart](uart_c.png)
+![codigo funcionamiento uart](Uart_c.png)
 
 
 ## Implementación
